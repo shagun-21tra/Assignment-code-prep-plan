@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>L1 - Interactive DOM Manipulation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    input, button {
+      margin: 10px 5px;
+      padding: 6px 10px;
+      font-size: 16px;
+    }
+
+    #output-box {
+      width: 300px;
+      height: 150px;
+      background-color: lightgray;
+      padding: 20px;
+      margin-top: 20px;
+      font-size: 18px;
+      text-align: center;
+      line-height: 110px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Interactive DOM Manipulation</h2>
+
+  <input type="text" id="colorInput" placeholder="Enter color name (e.g., red)">
+  <button id="changeColorBtn">Change Background</button>
+  <br>
+
+  <input type="text" id="textInput" placeholder="Enter new text">
+  <button id="updateTextBtn">Update Text</button>
+
+  <div id="output-box">Initial Text Content</div>
+
+  <script>
+    const colorInput = document.getElementById('colorInput');
+    const textInput = document.getElementById('textInput');
+    const changeColorBtn = document.getElementById('changeColorBtn');
+    const updateTextBtn = document.getElementById('updateTextBtn');
+    const outputBox = document.getElementById('output-box');
+
+    // Check if a string is a valid CSS color
+    function isValidColor(color) {
+      const temp = document.createElement("div");
+      temp.style.color = color;
+      return temp.style.color !== '';
+    }
+
+    // Change background color handler
+    changeColorBtn.addEventListener('click', () => {
+      const color = colorInput.value.trim();
+      if (isValidColor(color)) {
+        outputBox.style.backgroundColor = color;
+      } else {
+        alert("Invalid color name!");
+      }
+    });
+
+    // Update text content handler
+    updateTextBtn.addEventListener('click', () => {
+      const newText = textInput.value.trim();
+      if (newText === "") {
+        alert("Please enter some text!");
+      } else {
+        outputBox.textContent = newText;
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Manipulation Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      padding: 15px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="main-heading">Original Heading</h1>
+
+  <p>This is the first paragraph.</p>
+  <p>This is the second paragraph.</p>
+
+  <div class="container">
+    <p>This paragraph is inside a container div.</p>
+  </div>
+
+  <script>
+    // 1. Select the <h1> element by ID and change its text
+    const heading = document.getElementById('main-heading');
+    heading.textContent = 'Welcome to the DOM World!';
+
+    // 2. Select all <p> elements and set their text color to blue
+    const paragraphs = document.getElementsByTagName('p');
+    for (let i = 0; i < paragraphs.length; i++) {
+      paragraphs[i].style.color = 'blue';
+    }
+
+    // 3. Select the first .container <div> and change its background color to yellow
+    const containerDiv = document.querySelector('.container');
+    containerDiv.style.backgroundColor = 'yellow';
+  </script>
+
+</body>
+</html>
